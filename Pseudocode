@@ -1,0 +1,101 @@
+Michael Parks
+09/04/2025
+
+1.Convert a user-input into all caps, print the result.
+-------------------------------------------------------
+Initialize string lowercaseSentence
+
+Prompt user "Enter a sentence in lowercase:"
+	Input lowercaseSentence
+
+Loop through lowercaseSentence letter-by-letter
+	If letter is between lowercase A and lowercase Z
+		lowercaseSentence letter -32
+		Next letter
+
+Print lowercaseSentence to console
+
+2. Have user input two numbers, add them together and print the result.
+-----------------------------------------------------------------------
+Initialize Integer firstNumber
+Initialize Integer secondNumber
+Intialize Integer sum
+
+Prompt user "What is the first number?"
+	Input firstNumber
+If input is NOT a number
+	Default to 0; Log debug "Invalid number, defaulted to 0."
+
+Prompt user "What is the second number?"
+	Input secondNumber
+If input is NOT a number
+	Default to 0; Log debug "Invalid number, defaulted to 0."
+
+sum = firstNumber + secondNumber
+
+Output sum to console
+
+3. Get an unknown amount of numbers from the user and add them together, print out the result.
+------------------------------------------------------------------------
+Initialize Boolean isFinished
+Initialize Integer sum
+Initialize Char choice
+
+If Boolean isFinished is false
+	Prompt user "What number would you like to add?"
+	Input number into temporary variable (tempVar)
+	sum = sum + tempVar
+	Prompt user "Would you like to add another number?"
+	Input Char choice; Loop until isFinished is true
+Else if Boolean isFinished is true
+	Output sum to console
+
+If Char choice is Y
+	Bool isFinished stays false
+Else
+	Bool isFinished change to true
+
+4. Have the user define a maximum whole number, print out a random number between 0 and their number. Allow the user to play again or quit.
+--------------------------------------------------------------------------
+Initialize Integer maxNumber
+Initialize Integer randomNumber
+Initialize Boolean isFinished
+Initialize Char choice
+
+If Boolean isFinished is false
+	Prompt user "Enter the max number you desire"
+	Input maxNumber
+If maxNumber <= 0
+	Debug log "Invalid number"; Default maxNumber = 10
+	randomNumber = RANDOM between 0 and maxNumber
+	print to console randomNumber
+	Prompt user "Would you like to do another?"
+	Input Char choice; Loop until isFinished is true
+Else if Boolean isFinished is true
+	Print to console "Thanks for playing!";
+
+If Char choice is Y
+	Bool isFinished stays false
+Else
+	Bool isFinished change to true
+
+5. Get a random number. If the number is even print “RIGHT”, if it’s odd, print “LEFT”. Do this ten times. Print out how many times it was “LEFT” and how many times it was “RIGHT”.
+-------------------------------------------------------------------------
+Initialize Integer leftCount
+Initialize Integer rightCount
+Initialize Integer randomNumber
+Initialize Integer amountOfLoops = 10
+
+For i from 1 to amountOfLoops
+	randomNumber = RANDOM between 1 and 100
+
+	If randomnumber can be divided by 2 or is equal to 0
+		Print to console "Right"
+		Add +1 to rightCount
+	Else
+		Print to console "Left"
+		Add +1 to leftCount
+Break loop when amountOfLoops is reached
+
+Output to console: "Left: " + leftCount
+Output to console: "Right: " + rightCount
