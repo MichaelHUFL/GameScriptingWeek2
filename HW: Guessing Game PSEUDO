@@ -1,0 +1,51 @@
+Michael Parks
+09/07/2025
+
+// Variables
+Instantiate Integer computerNumber
+Instantiate Integer userNumber
+Instantiate Integer currentAttemp = 0
+Instantiate Boolean loopFinish = false
+Instantiate Boolean hasWon = false
+Instantiate Char playAgain
+
+// Functions
+- Computer instantiates random integer between 0 and 100.
+- Store random integer in computerNumber.
+- Set all Integers to defaults (Ints = 0 / Bools = false).
+
+If loopFinish is false
+	If currentAttempt is <= 7
+		- Prompt user input "Choose a Number Between 0 - 100"
+		- User input -> userNumber
+		
+		If userNumber = computerNumber
+			- Boolean hasWon is set to true
+			- Boolean loopFinish is set to true
+			- Break loop
+		Else if userNumber != computerNumber
+			- currentAttempt +1
+			- Prompt user "Nope! Try again!"
+
+	Else if currentAttempt > 7
+		- Boolean hasWon is set to false
+ 		- Boolean loopFinish is set to true
+ 		- Break loop
+
+Else if loopFinish is true
+	If currentAttempt > 7
+		- Prompt user "You ran out of attempts!"
+	If hasWon is true
+		- Prompt user "Wow! You got it right!"
+
+- Prompt User "Play Again? (Y/N)"
+- User input -> playAgain
+
+	If playAgain = "Y"
+		- Set all Integers to defaults (Ints = 0 / Bools = false)
+		- Return to loop function
+	Else if playAgain = "N"
+ 		- Prompt user "Thanks for playing!"
+	Else if neither
+		- Prompt user "Invalid Option! Choose Y/N"
+		- User input -> playAgain
