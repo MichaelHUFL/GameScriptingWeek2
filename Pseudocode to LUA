@@ -1,0 +1,88 @@
+--[[ 
+    Name: Michael Parks
+    Date: 9/18/2025
+    Obj: Turn pseudocode into working LUA code
+]]--
+
+-- __________________________ #1 ___________________________
+print ("Enter something you'd like to put in all caps: ")
+userText = io.read()
+print(string.upper(userText))
+
+-- __________________________ #2 ___________________________
+print ("Enter your FIRST number: ")
+firstNumber = tonumber(io.read())
+
+if type(firstNumber) ~= "number" then
+  print ("Enter a VALID number! ")
+  firstNumber = io.read("*n")
+end
+
+print ("Enter your SECOND number: ")
+secondNumber = tonumber(io.read())
+
+if type(secondNumber) ~= "number" then
+  print ("Enter a VALID number! ")
+  secondNumber = io.read("*n")
+end
+
+total = (firstNumber + secondNumber)
+print(total)
+
+-- __________________________ #3 ___________________________
+conVal = "y"
+newNum = 0
+total = 0
+
+while conVal ~= "n" do
+  print ("Enter a NUMBER: ")
+  newNum = tonumber(io.read())
+  
+  if type(newNum) ~= "number" then
+    print ("Enter a VALID number! ")
+    newNum - tonumber(io.read())
+  end
+  
+  total = total + newNum
+  print ("Would you like to enter another number? y/n: ")
+  conVal = io.read()
+end
+
+print("Total: " ..total)
+
+-- __________________________ #4 ___________________________
+conVal = "y"
+math.randomseed(os.time())
+
+while conVal ~= "n" do
+  print ("Enter a MAX number: ")
+  maxNum = tonumber(io.read())
+  
+    if type(maxNum) ~= "number" then
+    print ("Enter a VALID number! ")
+    maxNum - tonumber(io.read())
+  end
+  
+  randomNum = math.random(0, maxNum)
+  print(randomNum)
+    print ("Would you like to enter another number? y/n: ")
+  conVal = io.read()
+end
+-- __________________________ #5 ___________________________
+math.randomseed(os.time())
+evenCount = 0
+oddCount = 0
+
+for x = 1, 10 do
+  myRandNum = math.random(1,1000)
+  print(myRandNum)
+  if(myRandNum %2 ==0) then
+    print("EVEN")
+    evenCount = evenCount +1 
+  else
+    print("ODD")
+    oddCount = oddCount +1
+  end
+end
+
+print("EVEN #s: "..evenCount.. "ODD #s: "..oddCount)
