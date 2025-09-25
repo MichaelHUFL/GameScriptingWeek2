@@ -1,0 +1,77 @@
+-- Michael Parks
+-- 09/24/2025
+
+-- | Instantiate Randomizer Seed | --
+math.randomseed(os.time())
+
+-- | Functions | --
+local function readNumber()
+  while true do
+    io.write("Choose a Number Between 0 - 100: ")
+    io.flush() -- Clean Buffer (I Hope) --
+    local input = io.read("*l")
+    
+    -- Error Handling --
+    if input == nil then
+      print("Exiting...")
+      os.exit(0)
+    end
+    ---------------------
+    
+    local n = tonumber(input)
+    if n and n % 1 == 0 and n >= 0 and n <= 100 then
+      return n
+    end
+    print("Invalid Number. Enter A Valid Number (1 - 100)!")
+  end
+end
+
+-- | Main Loop | --
+while true do
+  -- Local Variables
+  local computerNumber = math.random(0, 100)
+  local currentAttempt, hasWon = 0, false
+
+  -- While Choice Is Still Availuable...
+  while currentAttempt < 7 do
+    local userNumber = readNumber()
+    if userNumber == computerNumber then
+      hasWon = true
+      break
+    else
+      currentAttempt = currentAttempt + 1
+      if currentAttempt < 7 then
+        print("Nope! Try Again!")
+      end
+    end
+  end
+
+  -- Determine Win / Loss --
+  if hasWon then
+    print("Wow! I'm Surprised You Got That Right!")
+  else
+    print("You Lose! The Number Was " .. computerNumber .. ".")
+  end
+
+  -- Prompt User To Play Again --
+  while true do
+    io.write("Play Again? (Y/N): ")
+    io.flush()-- Clean Buffer (I Hope) --
+    local ans = io.read("*l")
+    
+        -- Error Handling --
+    if ans == nil then
+      print("Exiting...")
+      os.exit(0)
+    end
+    ---------------------
+    
+    if ans == "Y" then break
+    elseif ans == "N" then
+      print("Thanks For Playing!")
+      os.exit(0)
+    else
+      print("Invalid Option! Choose Y/N")
+    end
+  end
+end
