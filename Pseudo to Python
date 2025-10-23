@@ -1,0 +1,87 @@
+# Michael Parks
+# 10/23/2025
+
+# 1. Convert a user-input into all caps, print the result.
+answer = input("Type Something: ")
+while answer.isdigit():
+  print("HEY! That's Not A Letter!")
+  answer = input("Type Something: ")
+print(answer.upper())
+
+# 2. Have user input two numbers, add them together and print the result.
+firstNum = input("What Is Your First Number?")
+while not firstNum.isdigit():
+  print("Please Enter A Number...")
+  firstNum = input("What Is Your First Number?")
+firstNum= int(firstNum)
+
+secondNum = input("What Is Your First Number?")
+while not secondNum.isdigit():
+  print("Please Enter A Number...")
+  secondNum = input("What Is Your First Number?")
+secondNum= int(secondNum)
+
+sum = firstNum + secondNum
+print(sum)
+
+# 3. Get an unknown amount of numbers from the user and add them together, print out the result.
+print("Enter Numbers To Add (Type 'N' To Stop):")
+stopFlagA = "Y"
+sum = 0
+
+while not stopFlagA == "N":
+  num = input("Enter A Number: ")
+  
+  while not num.isdigit():
+    print("Please Enter A Number...")
+    num = input("Enter A Number: ")
+  
+  num = int(num)
+  sum = sum + num
+  
+  stopFlagA = input("Continue? (Y/N): ").upper()
+  
+  while not stopFlagA == "Y" and stopFlagA == "N":
+    print("Please Enter Y or N... ")
+    stopFlagA = input("Continue? (Y/N): ").upper()
+  
+print("Sum Of All Numbers =", sum)
+  
+# 4. Have the user define a maximum whole number, print out a random number between 0 and their number. Allow the user to play again or quit.
+import random
+stopFlagB = "Y"
+
+while not stopFlagB == "N":
+  ranNum = input("Enter A Number Between 0 - 100: ")
+  
+  while not ranNum.isdigit():
+    print("Please Enter A Number...")
+    ranNum = input("Enter A Number Between 0 - 100: ")
+  
+  random_num = random.randint(0, 100)
+  print("Your Random Number =", ranNum)
+  
+  stopFlagB = input("Continue? (Y/N): ").upper()
+  while not stopFlagB == "Y" and stopFlagB == "N":
+    print("Please Enter Y or N... ")
+    stopFlagB = input("Continue? (Y/N): ").upper()
+    
+print("Thanks For Playing!")
+
+# 5. Get a random number. If the number is even print “RIGHT”, if it’s odd, print “LEFT”. Do this ten times. Print out how many times it was “LEFT” and how many times it was “RIGHT”.
+import random
+totalRight = 0
+totalLeft = 0
+
+for i in range(10):
+  num = random.randint(1, 100)
+
+  if (num % 2 == 1):
+    totalRight = totalRight + 1
+    print("RIGHT")
+  else:
+    totalLeft = totalLeft + 1
+    print("LEFT")
+
+print("Total RIGHT:", totalRight)
+print("Total LEFT:", totalLeft)
