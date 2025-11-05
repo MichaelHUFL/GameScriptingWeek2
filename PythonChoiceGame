@@ -1,0 +1,40 @@
+# Michael Parks
+# November 1, 2025
+# Python Choice Game
+
+# \ --- Title --- \
+print("----------------------")
+print("Michael's Python Game!")
+print("----------------------\n")
+# \ --- Create Character --- \
+playerName = input("Enter Your Name: ")
+print(f"\nGreetings, {playerName}! Your journey begins here...")
+print("-----------------------------------------------------\n")
+# \ --- Introduction --- \
+print(f"{playerName} stands calmly in a cold, decrepid building that resembles a hospital. ")
+print("The flourescent hum of the half-working lights echos off the damp white walls around you. ")
+print(f"{playerName} does not know where they're at, but knows one thing for certain: they need to get out. \n")
+# \ --- Prompt Choices --- \
+print("-----------------------------------------------------")
+print(f"{playerName} looks around and see's multiple different directions the hallway's break off in:\n")
+print("1. Straight — the hallway continues into darkness.")
+print("2. Left — a hallway breaks off to the left, where more lights can be heard.")
+print("3. Right — a hallway breaks off to the right, smelling of rot and stillwater.\n")
+choiceA = input("Which way would you like to go? (Straight/Left/Right): ").strip().lower()
+print("\n-----------------------------------------------------")
+# \ --- Choice Logic --- \
+if choiceA == "straight":
+  print(f"{playerName} walks forward and sees nothing but a wall. Then, {playerName} turns around and notices... the hallway is gone and another wall blocks the path.\n")
+  print("There is no exit, no door, nothing... just four walls and an uncertain future.")
+elif choiceA == "left":
+  print(f"{playerName} walks left and walks under a flickering light. Suddenly, the light breaks and crushes {playerName}.")
+  print(f"{playerName} is not dead, but has been knocked out.")
+elif choiceA == "right":
+  print(f"{playerName} walks right and begins walking through knee-deep water. Suddenly, {playerName} feels something grab their leg.")
+  print(f"{playerName} is then pulled down into the water, never to surface again.")
+else:
+  print("\nYou stand still, unsure which way to go.")
+print("-----------------------------------------------------")
+# \ --- End --- \
+print("\nThe journey ends here... for now.")
+print("Thank you for playing!")
