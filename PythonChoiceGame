@@ -23,8 +23,26 @@ print("3. Right — a hallway breaks off to the right, smelling of rot and still
 choiceA = input("Which way would you like to go? (Straight/Left/Right): ").strip().lower()
 print("\n-----------------------------------------------------")
 # \ --- Functions (From Bottom To Top)--- \
+def moveD4():
+  print(f"{playerName} walks towards the exit door and reaches their hand out to take the handle. Suddenly, the little girl says something:")
+  print("\n- You won't make it far, you know... You're stuck here. Like me.\n")
+  print(f"{playerName} ignores the statement of the small child and continues through the yellow exit door and back out into the darkness...")
+def moveD3():
+  print("The little girl looks back with a large smile on her face, her eyes light up with excitement.")
+  print("\n- REALLY?! YOU'RE STAYING?! YAY!!! We get to be friends here forever!")
 def moveD2():
-  print("\nTHIS IS A TEST")
+  print("\n- You want to leave? But you just got here! I guess if you want to leave, just go through that yellow door there...\n")
+  print("The small child begins to cry lightly, turning back and looking down at her teddy bear.\n")
+  print("1. Stay — stay with the child.")
+  print("2. Leave — leave the child.\n")
+  choiceD2 = input("What do you do? (Stay/Leave): ").strip().lower()
+  print("\n-----------------------------------------------------")
+  if choiceD2 == "stay":
+    moveD3()
+  elif choiceD2 == "leave":
+    moveD4()
+  else:
+      print("\n")
 def moveD1():
   print(f"{playerName} looks around the room. The room appears to be an old chemistry lab where medicines are tested and created. There are papers and trash strewn randomly across the tables and floor.")
   print("There's a thick layer of dust on everything, and one singular flourescent light brightening the room from the center of the ceiling.\n")
@@ -33,7 +51,8 @@ def moveD1():
   print("A. Who are you?")
   print("B. Where am I?")
   print("C. Are you okay?")
-  print("C. How do I get out of here?\n")
+  print("D. How do I get out of here?\n")
+  # Dialogue Loop
   while True:
     choiceD1 = input("What would you like to ask? (A/B/C/D)").strip().lower()
     print("\n-----------------------------------------------------")
