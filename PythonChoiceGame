@@ -1,6 +1,6 @@
 # Michael Parks
 # November 1, 2025
-# Python Choice Game
+# Python Choice Game -> Uses Nested If/Else Statements That Call Functions When Referenced
 
 # \ --- Title --- \
 print("----------------------")
@@ -12,7 +12,7 @@ print(f"\nGreetings, {playerName}! Your journey begins here...")
 print("-----------------------------------------------------\n")
 # \ --- Introduction --- \
 print(f"{playerName} stands calmly in a cold, decrepid building that resembles a hospital. ")
-print("The flourescent hum of the half-working lights echos off the damp white walls around you. ")
+print("The flourescent hum of the half-working lights echos off the damp white walls around them. ")
 print(f"{playerName} does not know where they're at, but knows one thing for certain: they need to get out. \n")
 # \ --- Prompt Choices --- \
 print("-----------------------------------------------------")
@@ -22,16 +22,99 @@ print("2. Left — a hallway breaks off to the left, where more lights can be he
 print("3. Right — a hallway breaks off to the right, smelling of rot and stillwater.\n")
 choiceA = input("Which way would you like to go? (Straight/Left/Right): ").strip().lower()
 print("\n-----------------------------------------------------")
+# \ --- Functions (From Bottom To Top)--- \
+def moveD2():
+  print("\nTHIS IS A TEST")
+def moveD1():
+  print(f"{playerName} looks around the room. The room appears to be an old chemistry lab where medicines are tested and created. There are papers and trash strewn randomly across the tables and floor.")
+  print("There's a thick layer of dust on everything, and one singular flourescent light brightening the room from the center of the ceiling.\n")
+  print(f"Surprisingly, {playerName} notices a little girl sitting on a table at the corner of the room. She seems to be playing with a rotted, ripped-up teddy bear.")
+  print(f"The little girl looks back at {playerName}.\n\n - Oh, hello! I didn't see you come in! \n")
+  print("A. Who are you?")
+  print("B. Where am I?")
+  print("C. Are you okay?")
+  print("C. How do I get out of here?\n")
+  while True:
+    choiceD1 = input("What would you like to ask? (A/B/C/D)").strip().lower()
+    print("\n-----------------------------------------------------")
+
+    if choiceD1 == "a":
+      print("\n- My name is Amelia! That's funny, usually people around here know me!\n")
+    elif choiceD1 == "b":
+      print("\n- You're at the hospital, silly! You must be sick too.\n")
+    elif choiceD1 == "c":
+      print("\n- I feel fine. What a silly question.\n")
+    elif choiceD1 == "d":
+      moveD2()
+      break
+    else:
+      print("\nYou stand there in silence...\n")
+def moveC1():
+  print(f"{playerName} begins to sprint as fast as they humanely can, nearly tripping over themselves. Their lungs are burning as they refuse to stop.")
+  print(f"Up ahead, {playerName} sees a red door. Without a choice, they burst through the door and land on the floor, gasping for air.\n")
+  moveD1()
+def moveC2():
+  print(f"{playerName} turns around to confront whatever is quickly approaching. Suddenly, the footsteps stop...")
+  print("It's deathly quiet. If a fly was a land on the tile floor below them, they'd probably hear it.")
+  print(f"Suddenly, a hand grabs {playerName} from the darkness by their feet. {playerName} tries their hardest to fight back, but the long and dry-skinned hands pull them down the hall, never to see the light of day again.")
+def moveB1():
+  print(f"{playerName} moves left of the hall and continues walking. Suddenly, from the darkness behind them, they hear footsteps sprinting up to them.")
+  print("The sound of something breathing heavily and freakishly get's louder and louder... Whatever it is, it's almost here. \n")
+  print("1. Run — run like hell.")
+  print("2. Fight — confront the darkness.\n")
+  choiceBA = input(f"{playerName} doesn't have much time. What do they do? (Run/Fight): ").strip().lower()
+  print("\n-----------------------------------------------------")
+  if choiceBA == "run":
+    moveC1()
+  elif choiceBA == "fight":
+    moveC2()
+  else:
+      print("\n")
+def moveB2():
+  print(f"{playerName} moves right and continues walking down the dimmed, dark hallway. Suddenly, they come across a room with a red door and a window that looks into the room.")
+  print("They can't see into the window, since it appears newspapers are covering thee glass; However, a light inside the room is obviously on. Without much of a choice, they enter the room.")
+  moveD1()
+def moveB3():
+  print(f"{playerName} continues straight and walks under one of the flickering lights.")
+  print(f"Suddenly, the light breaks right above {playerName}'s head, coming down and smashing on their skull. Everything goes black, and it's unknown what will happen when they wake up...\n")
+def moveB4():
+  print(f"{playerName} continues on and walks down another long, cold corridor. The lights begin to, once again, dim and become darker. The hallway becomes difficult to see in.")
+  print(f"Out of nowhere, they come across a large red metal door leading into a room with a small light coming from under the door. Without much choice, {playerName} enter's the door.\n")
+  moveD1()
+def moveA1():
+  print(f"{playerName} walks forward into the continuing darkness. They think they hear sounds coming from deeper within the halls, but {playerName} is unsure they are real.")
+  print(f"Proceeding deeper into the hall, {playerName} notices the hallway breaks off to the left and right:\n")
+  print("1. Left — the hallway breaks off to the left.")
+  print("2. Right — the hallway breaks off to the right\n")
+  choiceAA = input("Which way would you like to go? (Left/Right): ").strip().lower()
+  print("\n-----------------------------------------------------")
+  if choiceAA == "left":
+    moveB1()
+  elif choiceAA == "right":
+    moveB2()
+  else:
+      print("\nYou stand still, unsure which way to go.")
+def moveA2():
+  print(f"{playerName} walks left and walks under multiple flickering lights and broken flourescent bulbs. The hallway seems to be getting a bit brighter, but it is still difficult to see.")
+  print(f"As {playerName} heads further down the hall, the hallway continues straight but also breaks off to the right.\n")
+  choiceAB = input("Which way would you like to go? (Straight/Right): ").strip().lower()
+  if choiceAB == "straight":
+    moveB3()
+  elif choiceAB == "right":
+    moveB4()
+  else:
+    print("\nYou stand still, unsure which way to go.")
+def moveA3():
+  print(f"{playerName} walks right and begins walking through knee-deep water. Suddenly, {playerName} feels something grab their leg.")
+  print(f"The hand pulls them down aggressively... {playerName} fights with all their might to get out of the water, but to no avail.")
+  print(f"{playerName} is then pulled down into the water, never to surface again...")
 # \ --- Choice Logic --- \
 if choiceA == "straight":
-  print(f"{playerName} walks forward and sees nothing but a wall. Then, {playerName} turns around and notices... the hallway is gone and another wall blocks the path.\n")
-  print("There is no exit, no door, nothing... just four walls and an uncertain future.")
+  moveA1()
 elif choiceA == "left":
-  print(f"{playerName} walks left and walks under a flickering light. Suddenly, the light breaks and crushes {playerName}.")
-  print(f"{playerName} is not dead, but has been knocked out.")
+  moveA2()
 elif choiceA == "right":
-  print(f"{playerName} walks right and begins walking through knee-deep water. Suddenly, {playerName} feels something grab their leg.")
-  print(f"{playerName} is then pulled down into the water, never to surface again.")
+  moveA3()
 else:
   print("\nYou stand still, unsure which way to go.")
 print("-----------------------------------------------------")
